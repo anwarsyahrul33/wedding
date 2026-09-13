@@ -55,13 +55,13 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
   const [giftOpen, setGiftOpen] = useState(false);
-  const [accountCopied, setAccountCopied] = useState(false);
+  const [accountCopied, setAccountCopied] = useState<1 | 2 | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const copyAccountNumber = async () => {
-    await navigator.clipboard.writeText("0000 0000 0000");
-    setAccountCopied(true);
-    window.setTimeout(() => setAccountCopied(false), 1800);
+  const copyAccountNumber = async (accountNumber: string, accountId: 1 | 2) => {
+    await navigator.clipboard.writeText(accountNumber.replace(/\s/g, ""));
+    setAccountCopied(accountId);
+    window.setTimeout(() => setAccountCopied(null), 1800);
   };
 
   const handleOpenInvitation = () => {
@@ -284,13 +284,22 @@ export default function Home() {
                 </button>
               </div>
               <p className="gift-copy">Doa dan kehadiran Anda adalah hadiah terindah. Bila berkenan, kirimkan tanda kasih melalui rekening berikut.</p>
-              <div className="gift-account">
-                <span>Bank BCA<br />a.n. Syahrul &amp; Afna</span>
-                <strong>0000 0000 0000</strong>
+              <div className="gift-accounts">
+                <div className="gift-account">
+                  <span>Bank BCA<br />a.n. Syahrul &amp; Afna</span>
+                  <strong>0000 0000 0000</strong>
+                </div>
+                <button className="copy-account" type="button" onClick={() => copyAccountNumber("0000 0000 0000", 1)}>
+                  {accountCopied === 1 ? "Nomor rekening tersalin" : "Salin nomor rekening"}
+                </button>
+                <div className="gift-account">
+                  <span>Bank BNI<br />a.n. Syahrul &amp; Afna</span>
+                  <strong>1111 1111 1111</strong>
+                </div>
+                <button className="copy-account" type="button" onClick={() => copyAccountNumber("1111 1111 1111", 2)}>
+                  {accountCopied === 2 ? "Nomor rekening tersalin" : "Salin nomor rekening"}
+                </button>
               </div>
-              <button className="copy-account" type="button" onClick={copyAccountNumber}>
-                {accountCopied ? "Nomor rekening tersalin" : "Salin nomor rekening"}
-              </button>
             </div>
           )}
           <button className="gift-trigger" aria-expanded={giftOpen} aria-label={giftOpen ? "Close wedding gift panel" : "Open wedding gift panel"} onClick={() => setGiftOpen(!giftOpen)}>
