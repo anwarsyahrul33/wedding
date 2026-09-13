@@ -77,9 +77,9 @@ button, a { font: inherit; }
 .count-item span { color: #c7a88f; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; }
 .gallery { display: grid; grid-template-columns: 1.2fr .8fr; grid-template-rows: 450px 250px; gap: 1rem; }
 .gallery > div { background-position: center; background-size: cover; }
-.gallery-large { grid-row: span 2; background: url("/IMG_2353.webp") center 38% / cover no-repeat; }
-.gallery-small.one { background: url("/IMG_2353.webp") center 40% / cover no-repeat; filter: sepia(.25); }
-.gallery-small.two { background: url("/IMG_2353.webp") center 42% / cover no-repeat; }
+.gallery-large { grid-row: span 2; background: url("/IMG_2456.webp") center / cover no-repeat; }
+.gallery-small.one { background: url("/IMG_2457.webp") center / cover no-repeat; filter: sepia(.25); }
+.gallery-small.two { background: url("/2458.webp") center 25% / cover no-repeat; }
 .gallery-caption { padding: 2rem; background: #e9e0d6; font: 2rem var(--font-display), Georgia, serif; }
 .gallery-caption p { margin: 0; }
 footer { padding: 8rem 2rem 3rem; background: #e9e0d6; text-align: center; }
