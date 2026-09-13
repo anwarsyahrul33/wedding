@@ -55,7 +55,14 @@ export default function Home() {
   const [playing, setPlaying] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
   const [giftOpen, setGiftOpen] = useState(false);
+  const [accountCopied, setAccountCopied] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const copyAccountNumber = async () => {
+    await navigator.clipboard.writeText("0000 0000 0000");
+    setAccountCopied(true);
+    window.setTimeout(() => setAccountCopied(false), 1800);
+  };
 
   const handleOpenInvitation = () => {
     setIsOpening(true);
@@ -276,17 +283,14 @@ export default function Home() {
                   ×
                 </button>
               </div>
-              <p className="gift-copy">Doa dan kehadiran Anda adalah hadiah terindah. Bila berkenan, kirimkan tanda kasih melalui QR berikut.</p>
-              <img
-                className="gift-qr"
-                src="https://quickchart.io/qr?size=220&text=Wedding%20gift%20for%20Syahrul%20%26%20Afna%20%7C%2025%20Oktober%202026"
-                alt="QR code for wedding gift transfer"
-              />
-              <p className="gift-hint">Scan untuk transfer hadiah</p>
+              <p className="gift-copy">Doa dan kehadiran Anda adalah hadiah terindah. Bila berkenan, kirimkan tanda kasih melalui rekening berikut.</p>
               <div className="gift-account">
-                <span>Transfer hadiah</span>
-                <strong>QRIS · Syahrul &amp; Afna</strong>
+                <span>Bank BCA<br />a.n. Syahrul &amp; Afna</span>
+                <strong>0000 0000 0000</strong>
               </div>
+              <button className="copy-account" type="button" onClick={copyAccountNumber}>
+                {accountCopied ? "Nomor rekening tersalin" : "Salin nomor rekening"}
+              </button>
             </div>
           )}
           <button className="gift-trigger" aria-expanded={giftOpen} aria-label={giftOpen ? "Close wedding gift panel" : "Open wedding gift panel"} onClick={() => setGiftOpen(!giftOpen)}>
