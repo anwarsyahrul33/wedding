@@ -104,29 +104,29 @@ footer small { display: block; margin-top: 5rem; color: var(--muted); font-size:
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes gift-in { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: none; } }
 
-+@media (max-width: 700px) {
-+  .invitation nav { gap: 1rem; padding: 1rem; }
-+  .invitation nav a { display: none; }
-+  .section { padding: 6rem 7vw; }
-+  .couple { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-+  .couple .couple-copy { grid-column: 1 / -1; order: -1; }
-+  .couple .portrait-b { display: block; }
-+  .event-grid { grid-template-columns: 1fr; }
-+  .event-grid article { padding: 2rem; }
-+  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 170px 180px; }
-+  .gallery-large { grid-row: span 2; }
-+  .gallery-caption { grid-column: span 2; }
-+  .hero { min-height: 85svh; padding: 8vw; }
-+  .count-item { padding: 1rem .2rem; }
-+  .count-item span { font-size: .5rem; letter-spacing: 0; }
-+}
-+
-+@media (max-width: 520px) {
-+  .gift-popup { right: .8rem; bottom: .8rem; }
-+  .gift-card { padding: 1.2rem; }
-+}
-+
-+@media (prefers-reduced-motion: reduce) {
-+  html { scroll-behavior: auto; }
-+  .invitation.visible, .gift-card { animation: none; }
-+}
+@media (max-width: 700px) {
+  .invitation nav { gap: 1rem; padding: 1rem; }
+  .invitation nav a { display: none; }
+  .section { padding: 6rem 7vw; }
+  .couple { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+  .couple .couple-copy { grid-column: 1 / -1; order: -1; }
+  .couple .portrait-b { display: block; }
+  .event-grid { grid-template-columns: 1fr; }
+  .event-grid article { padding: 2rem; }
+  .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 260px 170px 180px; }
+  .gallery-large { grid-row: span 2; }
+  .gallery-caption { grid-column: span 2; }
+  .hero { min-height: 85svh; padding: 8vw; }
+  .count-item { padding: 1rem .2rem; }
+  .count-item span { font-size: .5rem; letter-spacing: 0; }
+}
+
+@media (max-width: 520px) {
+  .gift-popup { right: .8rem; bottom: .8rem; }
+  .gift-card { padding: 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .invitation.visible, .gift-card { animation: none; }
+}
