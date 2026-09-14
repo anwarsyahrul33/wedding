@@ -64,6 +64,26 @@ export default function Home() {
     window.setTimeout(() => setAccountCopied(null), 1800);
   };
 
+  useEffect(() => {
+    if (!open) return;
+
+    const revealItems = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -8%" },
+    );
+
+    revealItems.forEach((item) => revealObserver.observe(item));
+    return () => revealObserver.disconnect();
+  }, [open]);
+
   const handleOpenInvitation = () => {
     setIsOpening(true);
 
@@ -139,7 +159,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="intro section">
+        <section className="intro section reveal-section" data-reveal>
           <p className="eyebrow">A new chapter</p>
           <h2>
             Two lives,
@@ -151,9 +171,9 @@ export default function Home() {
           </p>
         </section>
 
-        <section className="couple section">
-          <div className="portrait portrait-a" aria-label="Bride portrait" />
-          <div className="couple-copy">
+        <section className="couple section reveal-section" data-reveal>
+          <div className="portrait portrait-a reveal-item" data-reveal aria-label="Bride portrait" />
+          <div className="couple-copy reveal-item" data-reveal>
             <p className="eyebrow">The couple</p>
             <h2>
               Meet the
@@ -164,10 +184,10 @@ export default function Home() {
               A quiet love, a thousand little moments, and a promise to keep choosing one another.
             </p>
           </div>
-          <div className="portrait portrait-b" aria-label="Groom portrait" />
+          <div className="portrait portrait-b reveal-item" data-reveal aria-label="Groom portrait" />
         </section>
 
-        <section id="story" className="story section">
+        <section id="story" className="story section reveal-section" data-reveal>
           <p className="eyebrow">Our story</p>
           <h2>
             It started with
@@ -175,17 +195,17 @@ export default function Home() {
             <em>hello.</em>
           </h2>
           <div className="timeline">
-            <div>
+            <div className="reveal-item" data-reveal>
               <b>2019</b>
               <h3>First encounter</h3>
               <p>A serendipitous meeting that neither of us expected.</p>
             </div>
-            <div>
+            <div className="reveal-item" data-reveal>
               <b>2022</b>
               <h3>A shared rhythm</h3>
               <p>Somehow, every ordinary day became our favourite.</p>
             </div>
-            <div>
+            <div className="reveal-item" data-reveal>
               <b>2026</b>
               <h3>The next chapter</h3>
               <p>With full hearts, we begin forever.</p>
@@ -193,7 +213,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="details" className="details section">
+        <section id="details" className="details section reveal-section" data-reveal>
           <p className="eyebrow">Join us</p>
           <h2>
             The day we
@@ -201,7 +221,7 @@ export default function Home() {
             <em>say I do</em>
           </h2>
           <div className="event-grid">
-            <article>
+            <article className="reveal-item" data-reveal>
               <span>01</span>
               <h3>Akad Nikah</h3>
               <p>
@@ -218,7 +238,7 @@ export default function Home() {
                 View location ↗
               </a>
             </article>
-            <article>
+            <article className="reveal-item" data-reveal>
               <span>02</span>
               <h3>Reception</h3>
               <p>
@@ -238,7 +258,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="count-section section">
+        <section className="count-section section reveal-section" data-reveal>
           <p className="eyebrow">Counting the days</p>
           <h2>
             Until forever
@@ -248,11 +268,11 @@ export default function Home() {
           <Countdown />
         </section>
 
-        <section className="gallery section">
-          <div className="gallery-large" />
-          <div className="gallery-small one" />
-          <div className="gallery-small two" />
-          <div className="gallery-caption">
+        <section className="gallery section reveal-section" data-reveal>
+          <div className="gallery-large reveal-item" data-reveal />
+          <div className="gallery-small one reveal-item" data-reveal />
+          <div className="gallery-small two reveal-item" data-reveal />
+          <div className="gallery-caption reveal-item" data-reveal>
             <p className="eyebrow">Moments</p>
             <p>
               And so the adventure
@@ -262,7 +282,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer>
+        <footer className="reveal-section" data-reveal>
           <p className="eyebrow">With all our love</p>
           <h2>
             Syahrul <i>&</i> Afna
