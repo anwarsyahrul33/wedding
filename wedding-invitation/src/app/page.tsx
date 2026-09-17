@@ -188,27 +188,27 @@ export default function Home() {
         </section>
 
         <section id="story" className="story section reveal-section" data-reveal>
-          <p className="eyebrow">Our story</p>
+          <p className="eyebrow">Kisah kami</p>
           <h2>
-            It started with
+            Berawal dari
             <br />
-            <em>hello.</em>
+            <em>sebuah pertemuan.</em>
           </h2>
           <div className="timeline">
             <div className="reveal-item" data-reveal>
-              <b>2019</b>
-              <h3>First encounter</h3>
-              <p>A serendipitous meeting that neither of us expected.</p>
+              <b>2020</b>
+              <h3>Awal pertemuan</h3>
+              <p>Sebuah pertemuan sederhana yang menjadi awal dari kisah dan kenangan indah kami.</p>
             </div>
             <div className="reveal-item" data-reveal>
-              <b>2022</b>
-              <h3>A shared rhythm</h3>
-              <p>Somehow, every ordinary day became our favourite.</p>
+              <b>2023</b>
+              <h3>Mulai menjalin hubungan</h3>
+              <p>Seiring waktu, kebersamaan membuat kami semakin dekat dan memutuskan untuk melangkah bersama dalam sebuah hubungan.</p>
             </div>
             <div className="reveal-item" data-reveal>
               <b>2026</b>
-              <h3>The next chapter</h3>
-              <p>With full hearts, we begin forever.</p>
+              <h3>Menuju jenjang pernikahan</h3>
+              <p>Dengan doa, restu keluarga, dan hati yang penuh syukur, kami siap memulai babak baru sebagai pasangan suami istri.</p>
             </div>
           </div>
         </section>
