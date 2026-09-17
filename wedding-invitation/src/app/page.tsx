@@ -255,6 +255,40 @@ export default function Home() {
                 View location ↗
               </a>
             </article>
+            <article className="reveal-item" data-reveal>
+              <span>03</span>
+              <h3>Resepsi Mempelai Pria</h3>
+              <p>
+                Sunday, 20 December 2026
+                <br />
+                12:00 — 15:00 WIB
+              </p>
+              <strong>
+                Kediaman keluarga mempelai pria
+                <br />
+                Jakarta Selatan
+              </strong>
+              <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
+                View location ↗
+              </a>
+            </article>
+            <article className="reveal-item" data-reveal>
+              <span>04</span>
+              <h3>Resepsi Mempelai Wanita</h3>
+              <p>
+                Sunday, 20 December 2026
+                <br />
+                15:30 — 18:00 WIB
+              </p>
+              <strong>
+                Kediaman keluarga mempelai wanita
+                <br />
+                Jakarta Selatan
+              </strong>
+              <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
+                View location ↗
+              </a>
+            </article>
           </div>
         </section>
 
