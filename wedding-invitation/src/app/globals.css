@@ -60,7 +60,7 @@ button, a { font: inherit; }
 .portrait { aspect-ratio: 3 / 4; background-position: center; background-size: cover; }
 .portrait-a { background-image: url("/IMG_2461.webp"); background-position: center 38%; }
 .portrait-b { position: relative; isolation: isolate; overflow: hidden; background: none; }
-.portrait-b::before { position: absolute; inset: -5%; z-index: 0; content: ""; background: url("/IMG_2472.webp") center / cover no-repeat; transform: rotate(-90deg) scale(1.08); }
+.portrait-b::before { position: absolute; inset: -5%; z-index: 0; content: ""; background: url("/IMG_2472.webp") center / cover no-repeat; }
 .couple .body-copy { margin: 0; }
 .story { max-width: none; padding-right: 15vw; padding-left: 15vw; background: #e9e0d6; }
 .timeline { display: grid; gap: 3rem; margin-top: 4rem; padding-left: 2rem; border-left: 1px solid var(--accent); }
