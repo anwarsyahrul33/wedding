@@ -223,6 +223,23 @@ export default function Home() {
           <div className="event-grid">
             <article className="reveal-item" data-reveal>
               <span>01</span>
+              <h3>Akad Nikah</h3>
+              <p>
+                Sunday, 20 December 2026
+                <br />
+                09:00 — 10:30 WIB
+              </p>
+              <strong>
+                Alila Villas Uluwatu
+                <br />
+                Jakarta Selatan
+              </strong>
+              <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
+                View location ↗
+              </a>
+            </article>
+            <article className="reveal-item" data-reveal>
+              <span>02</span>
               <h3>Resepsi Mempelai Pria</h3>
               <p>
                 Sunday, 20 December 2026
@@ -239,7 +256,7 @@ export default function Home() {
               </a>
             </article>
             <article className="reveal-item" data-reveal>
-              <span>02</span>
+              <span>03</span>
               <h3>Resepsi Mempelai Wanita</h3>
               <p>
                 Sunday, 20 December 2026
