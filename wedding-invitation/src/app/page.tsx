@@ -174,14 +174,14 @@ export default function Home() {
         <section className="couple section reveal-section" data-reveal>
           <div className="portrait portrait-a reveal-item" data-reveal aria-label="Bride portrait" />
           <div className="couple-copy reveal-item" data-reveal>
-            <p className="eyebrow">The couple</p>
+            <p className="eyebrow">Tentang kami</p>
             <h2>
-              Meet the
+              Dua hati,
               <br />
-              <em>happy two</em>
+              <em>satu bahagia</em>
             </h2>
             <p className="body-copy">
-              A quiet love, a thousand little moments, and a promise to keep choosing one another.
+              Berawal dari kasih yang sederhana, kami menemukan kebahagiaan dalam setiap momen dan berjanji untuk terus memilih satu sama lain.
             </p>
           </div>
           <div className="portrait portrait-b reveal-item" data-reveal aria-label="Groom portrait" />
@@ -225,14 +225,14 @@ export default function Home() {
               <span>01</span>
               <h3>Akad Nikah</h3>
               <p>
-                Sunday, 20 December 2026
+                Ahad, 25 Oktober 2026
                 <br />
-                09:00 — 10:30 WIB
+                07:00 WIB
               </p>
               <strong>
-                Alila Villas Uluwatu
+                Kediaman Mempelai Wanita
                 <br />
-                Jakarta Selatan
+                Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
                 View location ↗
@@ -242,14 +242,14 @@ export default function Home() {
               <span>02</span>
               <h3>Resepsi Mempelai Pria</h3>
               <p>
-                Sunday, 20 December 2026
+                Ahad, 25 Oktober 2026
                 <br />
-                12:00 — 15:00 WIB
+                13:00 — 20:00 WIB
               </p>
               <strong>
                 Kediaman keluarga mempelai pria
                 <br />
-                Jakarta Selatan
+                Dukuh Srabi Kidul RT 007/RW 005, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
                 View location ↗
@@ -259,14 +259,14 @@ export default function Home() {
               <span>03</span>
               <h3>Resepsi Mempelai Wanita</h3>
               <p>
-                Sunday, 20 December 2026
+                Ahad, 25 Oktober 2026
                 <br />
-                15:30 — 18:00 WIB
+                13:30 — 20:00 WIB
               </p>
               <strong>
                 Kediaman keluarga mempelai wanita
                 <br />
-                Jakarta Selatan
+                Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
                 View location ↗
