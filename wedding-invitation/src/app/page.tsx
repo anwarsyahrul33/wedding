@@ -162,9 +162,9 @@ export default function Home() {
         <section className="intro section reveal-section" data-reveal>
           <p className="eyebrow">A new chapter</p>
           <h2>
-            Two lives,
+            Dua insan,
             <br />
-            <em>one beautiful story.</em>
+            <em>satu kisah indah.</em>
           </h2>
           <p className="body-copy">
             Dengan rahmat tuhan, dan restu dari keluarga kami, kami dengan senang hati mengundang Anda untuk berbagi kebahagiaan di hari pernikahan kami
