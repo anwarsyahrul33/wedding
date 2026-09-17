@@ -214,11 +214,11 @@ export default function Home() {
         </section>
 
         <section id="details" className="details section reveal-section" data-reveal>
-          <p className="eyebrow">Join us</p>
+          <p className="eyebrow">Bersama kami</p>
           <h2>
-            The day we
+            Hari saat kami
             <br />
-            <em>say I do</em>
+            <em>mengucap janji.</em>
           </h2>
           <div className="event-grid">
             <article className="reveal-item" data-reveal>
@@ -235,7 +235,7 @@ export default function Home() {
                 Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
-                View location ↗
+                Lihat lokasi ↗
               </a>
             </article>
             <article className="reveal-item" data-reveal>
@@ -252,7 +252,7 @@ export default function Home() {
                 Dukuh Srabi Kidul RT 007/RW 005, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
-                View location ↗
+                Lihat lokasi ↗
               </a>
             </article>
             <article className="reveal-item" data-reveal>
@@ -269,7 +269,7 @@ export default function Home() {
                 Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
-                View location ↗
+                Lihat lokasi ↗
               </a>
             </article>
           </div>
