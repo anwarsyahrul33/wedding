@@ -27,7 +27,7 @@ button, a { font: inherit; }
   padding: 2rem;
   color: #fff;
   text-align: center;
-  background: linear-gradient(#342b2788, #342b2755), url("/IMG_2414-compressed.jpg") center 36% / cover no-repeat;
+  background: linear-gradient(#342b2788, #342b2755), url("/IMG_2470.webp") center 20% / cover no-repeat;
   transition: opacity .8s ease, transform .8s ease, filter .8s ease;
 }
 .cover-inner,
@@ -45,7 +45,7 @@ button, a { font: inherit; }
 .cover-note { margin-top: 4rem; font-size: .75rem; opacity: .75; }
 
 .section { max-width: 1100px; margin: auto; padding: 9rem 7vw; }
-.hero { min-height: 100svh; display: flex; align-items: end; padding: 8vw; color: #fff; background: linear-gradient(0deg, #27211bce, transparent 60%), url("/IMG_2470.webp") center 36% / cover no-repeat; }
+.hero { min-height: 100svh; display: flex; align-items: end; padding: 8vw; color: #fff; background: linear-gradient(0deg, #27211bce, transparent 60%), url("/IMG_2470.webp") center 20% / cover no-repeat; }
 .hero h1 { margin: 0 0 1.5rem; font-size: clamp(4rem, 11vw, 9rem); }
 .hero h1 i { font-size: .6em; }
 .hero-copy p:last-child { font-size: .72rem; letter-spacing: .12em; }
