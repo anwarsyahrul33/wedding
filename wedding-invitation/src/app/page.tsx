@@ -129,7 +129,7 @@ export default function Home() {
             <button className="button light" onClick={handleOpenInvitation}>
               Open invitation <span>↗</span>
             </button>
-            <p className="cover-note">With love, we invite you to celebrate our beginning.</p>
+            <p className="cover-note">Kami mengundang anda untuk bersama merayakan hari kebahagiaan kami.</p>
           </div>
         </section>
       )}
@@ -323,15 +323,15 @@ export default function Home() {
               <p className="gift-copy">Doa dan kehadiran Anda adalah hadiah terindah. Bila berkenan, kirimkan tanda kasih melalui rekening berikut.</p>
               <div className="gift-accounts">
                 <div className="gift-account">
-                  <span>Bank BCA<br />a.n. Syahrul &amp; Afna</span>
-                  <strong>0000 0000 0000</strong>
+                  <span>Bank BCA<br />a.n. MUHAMMAD SYAHRUL ANWAR</span>
+                  <strong>031 306 9386</strong>
                 </div>
                 <button className="copy-account" type="button" onClick={() => copyAccountNumber("0000 0000 0000", 1)}>
                   {accountCopied === 1 ? "Nomor rekening tersalin" : "Salin nomor rekening"}
                 </button>
                 <div className="gift-account">
-                  <span>Bank BNI<br />a.n. Syahrul &amp; Afna</span>
-                  <strong>1111 1111 1111</strong>
+                  <span>Bank CIMB NIAGA<br />a.n. AFNA FAUZULMUNA</span>
+                  <strong>7079 8083 1200</strong>
                 </div>
                 <button className="copy-account" type="button" onClick={() => copyAccountNumber("1111 1111 1111", 2)}>
                   {accountCopied === 2 ? "Nomor rekening tersalin" : "Salin nomor rekening"}
