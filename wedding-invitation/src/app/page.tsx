@@ -232,7 +232,7 @@ export default function Home() {
               <strong>
                 Kediaman Mempelai Wanita
                 <br />
-                Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
+                Dukuh Kauman RT 003/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
                 Lihat lokasi ↗
@@ -266,7 +266,7 @@ export default function Home() {
               <strong>
                 Kediaman keluarga mempelai wanita
                 <br />
-                Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
+                Dukuh Kauman RT 003/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
               <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
                 Lihat lokasi ↗
