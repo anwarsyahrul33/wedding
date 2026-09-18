@@ -268,7 +268,7 @@ export default function Home() {
                 <br />
                 Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
-              <a href="https://maps.app.goo.gl/9B24LAjeYyMKAKiv6?g_st=aw" target="_blank" rel="noreferrer">
+              <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
                 Lihat lokasi ↗
               </a>
             </article>
