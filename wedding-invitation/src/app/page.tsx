@@ -251,7 +251,7 @@ export default function Home() {
                 <br />
                 Dukuh Srabi Kidul RT 007/RW 005, Kecamatan Gebog, Kabupaten Kudus
               </strong>
-              <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
+              <a href="https://maps.app.goo.gl/9B24LAjeYyMKAKiv6?g_st=aw" target="_blank" rel="noreferrer">
                 Lihat lokasi ↗
               </a>
             </article>
@@ -268,7 +268,7 @@ export default function Home() {
                 <br />
                 Dukuh Kauman RT 007/RW 007, Kecamatan Gebog, Kabupaten Kudus
               </strong>
-              <a href="https://maps.app.goo.gl/MPEpwLqBU3SYqxkw5" target="_blank" rel="noreferrer">
+              <a href="https://maps.app.goo.gl/9B24LAjeYyMKAKiv6?g_st=aw" target="_blank" rel="noreferrer">
                 Lihat lokasi ↗
               </a>
             </article>
@@ -330,8 +330,8 @@ export default function Home() {
                   {accountCopied === 1 ? "Nomor rekening tersalin" : "Salin nomor rekening"}
                 </button>
                 <div className="gift-account">
-                  <span>Bank CIMB NIAGA<br />a.n. AFNA FAUZULMUNA</span>
-                  <strong>7079 8083 1200</strong>
+                  <span>Bank BRI<br />a.n. AFNA FAUZULMUNA</span>
+                  <strong>3410 0105 7162 538</strong>
                 </div>
                 <button className="copy-account" type="button" onClick={() => copyAccountNumber("1111 1111 1111", 2)}>
                   {accountCopied === 2 ? "Nomor rekening tersalin" : "Salin nomor rekening"}
