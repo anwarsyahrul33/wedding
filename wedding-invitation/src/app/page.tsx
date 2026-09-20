@@ -5,6 +5,25 @@ import { useEffect, useRef, useState } from "react";
 const weddingDate = new Date("2026-10-25T09:00:00+07:00").getTime();
 const MUSIC_START_OFFSET_SECONDS = 10;
 
+type GuestMessage = {
+  id: number;
+  name: string;
+  message: string;
+};
+
+const initialMessages: GuestMessage[] = [
+  {
+    id: 1,
+    name: "Keluarga Besar",
+    message: "Selamat menempuh hidup baru, semoga selalu diberi kebahagiaan dan keberkahan.",
+  },
+  {
+    id: 2,
+    name: "Teman Dekat",
+    message: "Semoga rumah tangga kalian dipenuhi cinta, sakinah, dan kebahagiaan yang langgeng.",
+  },
+];
+
 function Countdown() {
   const [mounted, setMounted] = useState(false);
   const [now, setNow] = useState(weddingDate);
@@ -56,6 +75,9 @@ export default function Home() {
   const [isOpening, setIsOpening] = useState(false);
   const [giftOpen, setGiftOpen] = useState(false);
   const [accountCopied, setAccountCopied] = useState<1 | 2 | null>(null);
+  const [guestName, setGuestName] = useState("");
+  const [guestMessage, setGuestMessage] = useState("");
+  const [messages, setMessages] = useState<GuestMessage[]>(initialMessages);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const copyAccountNumber = async (accountNumber: string, accountId: 1 | 2) => {
@@ -114,6 +136,27 @@ export default function Home() {
     } catch {
       setPlaying(false);
     }
+  };
+
+  const handleGuestMessageSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const trimmedName = guestName.trim();
+    const trimmedMessage = guestMessage.trim();
+
+    if (!trimmedMessage) return;
+
+    setMessages((currentMessages) => [
+      {
+        id: Date.now(),
+        name: trimmedName || "Tamu undangan",
+        message: trimmedMessage,
+      },
+      ...currentMessages,
+    ]);
+
+    setGuestName("");
+    setGuestMessage("");
   };
 
   return (
@@ -296,6 +339,48 @@ export default function Home() {
               <br />
               <em>continues.</em>
             </p>
+          </div>
+        </section>
+
+        <section className="guestbook section reveal-section" data-reveal>
+          <p className="eyebrow">Ucapan selamat</p>
+          <h2>
+            Berikan doa dan
+            <br />
+            <em>selamat untuk kami.</em>
+          </h2>
+
+          <form className="guestbook-form" onSubmit={handleGuestMessageSubmit}>
+            <label>
+              Nama
+              <input
+                type="text"
+                value={guestName}
+                onChange={(event) => setGuestName(event.target.value)}
+                placeholder="Tulis nama Anda"
+              />
+            </label>
+            <label>
+              Ucapan selamat
+              <textarea
+                value={guestMessage}
+                onChange={(event) => setGuestMessage(event.target.value)}
+                placeholder="Tuliskan doa atau ucapan selamat untuk kami..."
+                rows={4}
+              />
+            </label>
+            <button type="submit" className="button guestbook-button">
+              Kirim ucapan
+            </button>
+          </form>
+
+          <div className="guestbook-list">
+            {messages.map((message) => (
+              <article key={message.id} className="guestbook-item">
+                <strong>{message.name}</strong>
+                <p>{message.message}</p>
+              </article>
+            ))}
           </div>
         </section>
 
