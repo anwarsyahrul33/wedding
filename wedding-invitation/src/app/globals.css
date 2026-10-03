@@ -42,6 +42,8 @@ button, a { font: inherit; }
 .cover-date { margin: 2rem 0; letter-spacing: .25em; }
 .button { border: 1px solid currentColor; background: transparent; padding: 1rem 1.5rem; cursor: pointer; font-size: .65rem; letter-spacing: .14em; text-transform: uppercase; }
 .button span { margin-left: 1.5rem; font-size: 1rem; }
+.btn-envelope { display: inline-flex; align-items: center; vertical-align: middle; margin-left: 0.8rem; transition: transform 0.3s ease; }
+.button:hover .btn-envelope { transform: translateY(-2px); }
 .cover-note { margin-top: 4rem; font-size: .75rem; opacity: .75; }
 
 .section { max-width: 1100px; margin: auto; padding: 9rem 7vw; }
@@ -210,6 +212,376 @@ footer small { display: block; margin-top: 5rem; color: var(--muted); font-size:
   [data-reveal] { transition-duration: .65s; }
 }
 
+/* ========================================================
+   FLORAL FRAME & SCROLL ANIMATION STYLES (60 FPS OPTIMIZED)
+   ======================================================== */
+
+/* Root container — GPU-composited fixed overlay */
+.floral-frame-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+  contain: layout style;
+  transform: translateZ(0);
+  opacity: 0.95;
+  transition: opacity 1s ease;
+}
+.floral-frame-open { opacity: 1; }
+
+/* Border frame container — uses CSS custom properties driven by rAF */
+.floral-frame-container {
+  position: absolute;
+  inset: calc(clamp(12px, 2.2vw, 26px) + var(--frame-flex, 0px));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.floral-border-outer {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(163, 125, 99, 0.35);
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgba(223, 190, 153, 0.12), inset 0 0 16px rgba(223, 190, 153, 0.05);
+  pointer-events: none;
+}
+
+.floral-border-inner {
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(163, 125, 99, 0.45);
+  border-radius: 3px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(163, 125, 99, 0.03) 0%,
+    rgba(223, 190, 153, 0.18) var(--shimmer-pos, 50%),
+    rgba(163, 125, 99, 0.03) 100%
+  );
+}
+
+.floral-border-shimmer {
+  position: absolute;
+  inset: -1px;
+  border-radius: 4px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--shimmer-pos, 50%) 0%,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 28%
+  );
+  mix-blend-mode: overlay;
+  opacity: 0.8;
+}
+
+/* Center Crests — GPU composited via translate3d */
+.floral-crest {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: clamp(120px, 15vw, 160px);
+  height: 36px;
+  pointer-events: none;
+  z-index: 3;
+  transform-origin: center center;
+}
+
+.floral-crest-top {
+  top: -18px;
+  transform: translateY(calc(var(--scroll-y, 0px) * -0.05)) rotate(calc(var(--sway-angle, 0deg) * 0.35));
+}
+
+.floral-crest-bottom {
+  bottom: -18px;
+  transform: translateY(calc(var(--scroll-y, 0px) * 0.05)) rotate(calc(var(--sway-angle-neg, 0deg) * 0.35));
+}
+
+/* Corner Rosettes */
+.floral-rosette {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.floral-rosette-tl {
+  top: -11px;
+  left: -11px;
+  transform: rotate(calc(var(--scroll-y, 0px) * 0.18deg));
+}
+
+.floral-rosette-tr {
+  top: -11px;
+  right: -11px;
+  transform: rotate(calc(var(--scroll-y, 0px) * -0.18deg));
+}
+
+.floral-rosette-bl {
+  bottom: -11px;
+  left: -11px;
+  transform: rotate(calc(var(--scroll-y, 0px) * -0.18deg));
+}
+
+.floral-rosette-br {
+  bottom: -11px;
+  right: -11px;
+  transform: rotate(calc(var(--scroll-y, 0px) * 0.18deg));
+}
+
+/* Corner Bouquets — GPU composited, no transitions (driven by CSS vars) */
+.floral-corner {
+  position: fixed;
+  width: clamp(100px, 14vw, 185px);
+  height: clamp(100px, 14vw, 185px);
+  pointer-events: none;
+  z-index: 8;
+  transform-origin: center center;
+  contain: layout style;
+}
+
+.floral-top-left {
+  top: 0;
+  left: 0;
+  transform: translate3d(
+      calc(var(--scroll-y, 0px) * -0.06),
+      calc(var(--scroll-y, 0px) * -0.1),
+      0
+    )
+    rotate(var(--sway-angle, 0deg));
+}
+
+.floral-top-right {
+  top: 0;
+  right: 0;
+  transform: translate3d(
+      calc(var(--scroll-y, 0px) * 0.06),
+      calc(var(--scroll-y, 0px) * -0.1),
+      0
+    )
+    rotate(var(--sway-angle-neg, 0deg));
+}
+
+.floral-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: translate3d(
+      calc(var(--scroll-y, 0px) * -0.04),
+      calc(var(--scroll-y, 0px) * 0.07),
+      0
+    )
+    rotate(calc(var(--sway-angle-neg, 0deg) * 0.8));
+}
+
+.floral-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: translate3d(
+      calc(var(--scroll-y, 0px) * 0.04),
+      calc(var(--scroll-y, 0px) * 0.07),
+      0
+    )
+    rotate(calc(var(--sway-angle, 0deg) * 0.8));
+}
+
+/* Sway animation containers */
+.floral-sway-inner {
+  width: 100%;
+  height: 100%;
+}
+
+.floral-sway-tl {
+  transform-origin: top left;
+  animation: floralGentleSwayTL 6.5s ease-in-out infinite alternate;
+}
+
+.floral-sway-tr {
+  transform-origin: top right;
+  animation: floralGentleSwayTR 7s ease-in-out infinite alternate;
+}
+
+.floral-sway-bl {
+  transform-origin: bottom left;
+  animation: floralGentleSwayBL 7.5s ease-in-out infinite alternate;
+}
+
+.floral-sway-br {
+  transform-origin: bottom right;
+  animation: floralGentleSwayBR 8s ease-in-out infinite alternate;
+}
+
+/* Side Vines */
+.floral-side {
+  position: fixed;
+  top: 32%;
+  width: clamp(26px, 3.2vw, 42px);
+  height: clamp(240px, 32vh, 380px);
+  pointer-events: none;
+  z-index: 6;
+}
+
+.floral-side-left {
+  left: clamp(4px, 0.8vw, 14px);
+  transform: translate3d(0, calc(var(--scroll-y, 0px) * 0.08 - 20px), 0)
+    rotate(calc(var(--sway-angle, 0deg) * 0.4));
+}
+
+.floral-side-right {
+  right: clamp(4px, 0.8vw, 14px);
+  transform: translate3d(0, calc(var(--scroll-y, 0px) * -0.06 + 20px), 0)
+    rotate(calc(var(--sway-angle-neg, 0deg) * 0.4));
+}
+
+.floral-rose-head {
+  transform-origin: center center;
+  animation: floralRoseBreathe 5s ease-in-out infinite alternate;
+}
+
+/* SVG utility classes — replace Tailwind utilities */
+.floral-crest-svg,
+.floral-rosette-svg,
+.floral-corner-svg,
+.floral-side-svg,
+.floral-falling-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.floral-crest-svg {
+  filter: drop-shadow(0 2px 8px rgba(163,125,99,0.22));
+}
+
+.floral-corner-svg {
+  filter: drop-shadow(0 4px 16px rgba(41,37,33,0.12));
+}
+
+.floral-falling-svg {
+  /* No drop-shadow on animated items — too expensive per frame */
+}
+
+/* Falling Petals Container */
+.floral-petals-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout style;
+}
+
+/* Falling Leaves & Petals — compositor-only animation (translateY, not top) */
+.continuous-falling-item {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  z-index: 7;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.fall-std {
+  animation-name: continuousLeafFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+.fall-alt {
+  animation-name: continuousLeafFallAlt;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes continuousLeafFall {
+  0% {
+    transform: translate3d(0, -8vh, 0) rotate(0deg) scale(0.9);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.85;
+  }
+  25% {
+    transform: translate3d(22px, 25vh, 0) rotate(90deg) scale(1);
+  }
+  50% {
+    transform: translate3d(-16px, 52vh, 0) rotate(180deg) scale(0.95);
+  }
+  75% {
+    transform: translate3d(18px, 78vh, 0) rotate(270deg) scale(1);
+  }
+  92% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(10px, 110vh, 0) rotate(360deg) scale(0.9);
+    opacity: 0;
+  }
+}
+
+@keyframes continuousLeafFallAlt {
+  0% {
+    transform: translate3d(0, -8vh, 0) rotate(30deg) scale(0.92);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.88;
+  }
+  25% {
+    transform: translate3d(-24px, 25vh, 0) rotate(-80deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(20px, 52vh, 0) rotate(-170deg) scale(0.94);
+  }
+  75% {
+    transform: translate3d(-14px, 78vh, 0) rotate(-260deg) scale(1);
+  }
+  92% {
+    opacity: 0.82;
+  }
+  100% {
+    transform: translate3d(-8px, 110vh, 0) rotate(-360deg) scale(0.88);
+    opacity: 0;
+  }
+}
+
+@keyframes floralGentleSwayTL {
+  0% { transform: rotate(-1.5deg) scale(0.99); }
+  100% { transform: rotate(1.8deg) scale(1.01); }
+}
+
+@keyframes floralGentleSwayTR {
+  0% { transform: rotate(1.5deg) scale(0.99); }
+  100% { transform: rotate(-1.8deg) scale(1.01); }
+}
+
+@keyframes floralGentleSwayBL {
+  0% { transform: rotate(-1.2deg) scale(0.99); }
+  100% { transform: rotate(1.5deg) scale(1.01); }
+}
+
+@keyframes floralGentleSwayBR {
+  0% { transform: rotate(1.2deg) scale(0.99); }
+  100% { transform: rotate(-1.5deg) scale(1.01); }
+}
+
+@keyframes floralRoseBreathe {
+  0% { transform: translate(48px, 48px) scale(0.985); }
+  50% { transform: translate(48px, 48px) scale(1.02) rotate(1deg); }
+  100% { transform: translate(48px, 48px) scale(0.99); }
+}
+
+@media (max-width: 700px) {
+  .floral-side { display: none !important; }
+  .floral-frame-container { inset: 8px !important; }
+  .floral-corner {
+    width: clamp(90px, 22vw, 130px) !important;
+    height: clamp(90px, 22vw, 130px) !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .invitation.visible, .gift-card { animation: none; }
@@ -217,5 +589,12 @@ footer small { display: block; margin-top: 5rem; color: var(--muted); font-size:
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .floral-frame-root,
+  .floral-corner, .floral-side, .floral-sway-inner, .floral-rose-head,
+  .continuous-falling-item, .floral-crest, .floral-rosette, .floral-frame-container {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

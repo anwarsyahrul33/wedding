@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import FloralFrame from "@/components/FloralFrame";
 
 const weddingDate = new Date("2026-10-25T09:00:00+07:00").getTime();
 const MUSIC_START_OFFSET_SECONDS = 10;
@@ -161,6 +162,7 @@ export default function Home() {
 
   return (
     <main className="page-shell">
+      <FloralFrame isOpen={open} />
       {!open && (
         <section className={isOpening ? "cover cover-closing" : "cover"}>
           <div className="cover-inner">
@@ -170,7 +172,7 @@ export default function Home() {
             </h1>
             <p className="cover-date">25 · 10 · 2026</p>
             <button className="button light" onClick={handleOpenInvitation}>
-              Open invitation <span>↗</span>
+              Open invitation <span className="btn-envelope"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" width="18" height="18"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M22 4 12 13 2 4" /></svg></span>
             </button>
             <p className="cover-note">Kami mengundang anda untuk bersama merayakan hari kebahagiaan kami.</p>
           </div>
